@@ -82,48 +82,46 @@ merge conflicts across multiple branches using proper Git workflows.
 
 ### Merge 2: main + conflict-simulator (6 files)
 
-### Conflict 1: docs/architecture.md
-- **Issue**: Main branch had stable microservices design; conflict-simulator introduced AI-driven, event-based multi-cloud architecture.
-- **Resolution**: Retained stable production microservices model.
-- **Strategy**: Removed experimental AI/ML and multi-cloud features to preserve compatibility.
+#### Conflict 1: config/app-config.yaml
+- **Issue**: Experimental service configurations (AI optimizer, distributed caching) conflicted with stable production setup.
+- **Resolution**: Retained production configuration as default while commenting out experimental settings.
+- **Strategy**: Integrated environment-based keys (production, experimental) to toggle safely.
+- **Difficulty**: Medium
+- **Time**: 15 minutes
+
+#### Conflict 2: config/database-config.json
+- **Issue**: Experimental database setup (replication, AI optimization, monitoring) conflicted with development and production configs.
+- **Resolution**: Preserved production and development blocks; added experimental block as commented JSON for reference.
+- **Strategy**: Used layered JSON approach — stable configurations remain active, experimental logic isolated.
+- **Difficulty**: Medium
+- **Time**: 20 minutes
+
+#### Conflict 3: scripts/deploy.sh
+- **Issue**: Experimental deployment logic (sandbox builds, test pipeline) conflicted with main deployment flow.
+- **Resolution**: Added conditional handling using ENABLE_EXPERIMENTAL_DEPLOY flag.
+- **Strategy**: Default to production deploy; experimental path executed only if the flag is enabled.
 - **Difficulty**: Hard
 - **Time**: 25 minutes
 
-### Conflict 2: scripts/deploy.sh
-- **Issue**: Main used environment-based deployment; conflict-simulator added AI-powered canary and chaos deployment logic.
-- **Resolution**: Preserved production and development logic only.
-- **Strategy**: Removed AI, chaos, and canary features for reliability.
-- **Difficulty**: Hard
-- **Time**: 20 minutes
-
-### Conflict 3: scripts/monitor.js
-- **Issue**: Main had basic health checks; conflict-simulator had AI/ML predictive monitoring.
-- **Resolution**: Kept the main lightweight version for simplicity.
-- **Strategy**: Removed predictive ML and retraining logic.
+#### Conflict 4: scripts/monitor.js
+- **Issue**: Different log collection intervals and AI-based anomaly detection logic.
+- **Resolution**: Unified monitoring flow; wrapped experimental monitoring inside feature toggle.
+- **Strategy**: Use process.env.EXPERIMENTAL_MONITOR to enable/disable new metrics safely.
 - **Difficulty**: Medium
 - **Time**: 15 minutes
 
-### Conflict 4: docs/architecture-overview.txt
-- **Issue**: Main documented standard two-tier setup; conflict-simulator proposed distributed AI-integrated model.
-- **Resolution**: Retained main’s structure with minimal comments about AI for future work.
-- **Strategy**: Added note on possible future AI integration (commented).
+#### Conflict 5: README.md
+- **Issue**: Version mismatch and feature discrepancies between production and experimental branches.
+- **Resolution**: Updated README to include both stable and experimental features under separate headers.
+- **Strategy**: Highlighted that experimental features are optional and not production-ready.
 - **Difficulty**: Easy
 - **Time**: 10 minutes
+### NOTE: Experimental features are for testing purposes only and not recommended for production use.
 
-### Conflict 5: config/system.yaml
-- **Issue**: Main had environment configs; conflict-simulator added AI and predictive scaling parameters.
-- **Resolution**: Kept environment configs, removed AI-specific keys.
-- **Strategy**: Ensured backward compatibility and clean YAML structure.
-- **Difficulty**: Medium
-- **Time**: 15 minutes
-
-### Conflict 6: README.md
-- **Issue**: Main described v1.0.0 stable version; conflict-simulator added v3.0.0-experimental details.
-- **Resolution**: Preserved stable release info only.
-- **Strategy**: Moved experimental content to separate internal note.
-- **Difficulty**: Easy
-- **Time**: 10 minutes
-
+### Development Mode: These commands are used for local testing and development
+export NODE_ENV=development
+npm install
+npm run dev
 
 
 ## Most Challenging Parts
