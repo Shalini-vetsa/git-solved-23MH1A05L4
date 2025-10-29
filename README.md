@@ -88,4 +88,4 @@ See `/docs` folder and `/docs/ai-integration.md`
 ⚠️ This is an experimental branch. Use at your own risk!
 
 ## License
-MIT License
+MIT License"## FAQ" 
