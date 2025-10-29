@@ -1,5 +1,4 @@
 # System Architecture
-
 ## Overview
 DevOps Simulator follows a microservices architecture designed for high availability and scalability. This document covers both production and development configurations.
 
