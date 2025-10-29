@@ -82,7 +82,49 @@ merge conflicts across multiple branches using proper Git workflows.
 
 ### Merge 2: main + conflict-simulator (6 files)
 
-[Document the second set of conflicts similarly]
+### Conflict 1: docs/architecture.md
+- **Issue**: Main branch had stable microservices design; conflict-simulator introduced AI-driven, event-based multi-cloud architecture.
+- **Resolution**: Retained stable production microservices model.
+- **Strategy**: Removed experimental AI/ML and multi-cloud features to preserve compatibility.
+- **Difficulty**: Hard
+- **Time**: 25 minutes
+
+### Conflict 2: scripts/deploy.sh
+- **Issue**: Main used environment-based deployment; conflict-simulator added AI-powered canary and chaos deployment logic.
+- **Resolution**: Preserved production and development logic only.
+- **Strategy**: Removed AI, chaos, and canary features for reliability.
+- **Difficulty**: Hard
+- **Time**: 20 minutes
+
+### Conflict 3: scripts/monitor.js
+- **Issue**: Main had basic health checks; conflict-simulator had AI/ML predictive monitoring.
+- **Resolution**: Kept the main lightweight version for simplicity.
+- **Strategy**: Removed predictive ML and retraining logic.
+- **Difficulty**: Medium
+- **Time**: 15 minutes
+
+### Conflict 4: docs/architecture-overview.txt
+- **Issue**: Main documented standard two-tier setup; conflict-simulator proposed distributed AI-integrated model.
+- **Resolution**: Retained main’s structure with minimal comments about AI for future work.
+- **Strategy**: Added note on possible future AI integration (commented).
+- **Difficulty**: Easy
+- **Time**: 10 minutes
+
+### Conflict 5: config/system.yaml
+- **Issue**: Main had environment configs; conflict-simulator added AI and predictive scaling parameters.
+- **Resolution**: Kept environment configs, removed AI-specific keys.
+- **Strategy**: Ensured backward compatibility and clean YAML structure.
+- **Difficulty**: Medium
+- **Time**: 15 minutes
+
+### Conflict 6: README.md
+- **Issue**: Main described v1.0.0 stable version; conflict-simulator added v3.0.0-experimental details.
+- **Resolution**: Preserved stable release info only.
+- **Strategy**: Moved experimental content to separate internal note.
+- **Difficulty**: Easy
+- **Time**: 10 minutes
+
+
 
 ## Most Challenging Parts
 
